@@ -1,5 +1,3 @@
-
-let saveBtnEl = document.getElementsByClassName("saveBtn");
 //sets the date 
 let dateDisplayEl = document.getElementById("currentDay");
  let today = moment().format(" dddd, MMMM Do YYYY");
@@ -14,38 +12,41 @@ let dateDisplayEl = document.getElementById("currentDay");
 //function for color coded time block
 $(".description").each(function(){
 
-   let clock = $(this).data("time");
-   console.log(clock);
+   let timeColor = $(this).data("time");
+   
 
 
-    if(clock < currentTime){
+    if(timeColor < currentTime){
         //this refers to whatever object it is contextually related to 
         $(this).addClass("past");
      }
-     else if (clock === currentTime){
+     else if (timeColor === currentTime){
          $(this).addClass("present");
      }
      else{
-         $(this).addClass("future");
+         $(this).addClass("future");``
      }
     
 });
 
 
+//save button function
+//give data- attribute to the text area, access it and have the button save that value 
+ $(".saveBtn").on("click", function(){
+     let textInput = $(this).prev().val();
+     let time = $(this).data("value");
+
+
+    //setItem needs two arguments
+    localStorage.setItem(time, textInput);
+ })
 
 
 
-
-
-
-
-//save button
-//give data- attribute to the text area and assing it and have the button save that value 
-//  function saveButton (){
-
-     
-//  }
-
-//  saveBtnEl.addEventListener("click",saveButton);
+                          
+    
+ 
+console.log(localStorage);
+ 
 
 
