@@ -1,20 +1,22 @@
-//sets the date 
+
 let dateDisplayEl = document.getElementById("currentDay");
- let today = moment().format(" dddd, MMMM Do YYYY");
- dateDisplayEl.textContent = today;
-//gets the hour 
- let currentTime = moment().hour();
+let currentTime = moment().hour();
 
+//function displays the current date 
+function todaysDate(){
+    let today = moment().format(" dddd, MMMM Do YYYY");
+    dateDisplayEl.textContent = today;
+    
+    };
 
-
-
-
+    
+    
+    
 //function for color coded time block
 $(".description").each(function(){
 
    let timeColor = $(this).data("time");
    
-
 
     if(timeColor < currentTime){
         //this refers to whatever object it is contextually related to 
@@ -34,7 +36,7 @@ $(".description").each(function(){
 //give data- attribute to the text area, access it and have the button save that value 
  $(".saveBtn").on("click", function(){
      let textInput = $(this).prev().val();
-     let time = $(this).data("value");
+     let time = $(this).parent().data("value");
 
 
     //setItem needs two arguments
@@ -45,7 +47,7 @@ $(".description").each(function(){
 
                           
     
- 
+ todaysDate();
 console.log(localStorage);
  
 
